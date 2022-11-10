@@ -74,6 +74,8 @@ public class BookingController {
 	@DeleteMapping("/{BookID}")
 	public void deleteBooking(@PathVariable int BookID)
 	{
+		Property property = propertyService.getProperty(bookingService.getBooking(BookID).getPID());
+		property.setBookStatus("Available");
 		bookingService.deleteBooking(BookID);
 	}
 }

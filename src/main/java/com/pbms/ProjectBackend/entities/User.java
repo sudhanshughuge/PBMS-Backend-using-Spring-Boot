@@ -27,7 +27,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Entity
-@Data
 public class User implements UserDetails{
 	@Id
 	private int UserID;
@@ -49,6 +48,61 @@ public class User implements UserDetails{
 	@JsonProperty
 	public void setPassword(String password) {
 		this.Password=password;
+	}
+
+	public User(int userID, String name, String username, String password, String email, String role) {
+		super();
+		UserID = userID;
+		Name = name;
+		this.username = username;
+		Password = password;
+		Email = email;
+		this.role = role;
+	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getUserID() {
+		return UserID;
+	}
+
+	public void setUserID(int userID) {
+		UserID = userID;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
@@ -81,5 +135,6 @@ public class User implements UserDetails{
 		// TODO Auto-generated method stub
 		return true;
 	}
+
 
 }

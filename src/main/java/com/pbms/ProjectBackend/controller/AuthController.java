@@ -1,5 +1,7 @@
 package com.pbms.ProjectBackend.controller;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,6 +40,8 @@ public class AuthController {
 
 	@PostMapping("/login")
 	public ResponseEntity<JwtAuthResponse> createToken(@RequestBody JwtAuthRequest request) throws Exception {
+		
+		System.err.println(request.getUsername()+" tries to logged in with password "+request.getPassword()+ " at "+new Date());
 		
 		this.authenticate(request.getUsername(), request.getPassword());
 		

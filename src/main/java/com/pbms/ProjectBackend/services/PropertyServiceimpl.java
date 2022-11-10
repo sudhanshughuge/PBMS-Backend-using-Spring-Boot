@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 
 import com.pbms.ProjectBackend.entities.Property;
-import com.pbms.ProjectBackend.exceptions.ResourceNotFoundException;
 import com.pbms.ProjectBackend.repository.PropertyRepo;
 
 @Service
@@ -30,7 +29,7 @@ public class PropertyServiceimpl implements PropertyService {
 
 	@Override
 	public Property getProperty(int PropID) {
-		Property property= this.propertyRepo.findById(PropID).orElseThrow(()-> new ResourceNotFoundException("Property", "id", PropID));
+		Property property= this.propertyRepo.findById(PropID).orElseThrow();
 		return property;
 	}
 

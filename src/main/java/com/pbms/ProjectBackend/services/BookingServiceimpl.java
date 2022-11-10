@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pbms.ProjectBackend.entities.Booking;
-import com.pbms.ProjectBackend.exceptions.ResourceNotFoundException;
 import com.pbms.ProjectBackend.repository.BookingRepo;
 
 @Service
@@ -23,7 +22,7 @@ public class BookingServiceimpl implements BookingService {
 
 	@Override
 	public Booking getBooking(int BookID) {
-		Booking booking = this.bookingRepo.findById(BookID).orElseThrow(()-> new ResourceNotFoundException("Booking", "id", BookID));
+		Booking booking = this.bookingRepo.findById(BookID).orElseThrow();
 		return booking;
 	}
 

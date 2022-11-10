@@ -10,7 +10,7 @@ public interface PaymentRepo extends CrudRepository<Payment, Integer> {
 	@Query(value = "SELECT max(PayID) FROM Payment")
 	String getMaxPaymentId();
 	
-	@Query(value = "SELECT cname FROM Payment where bookid=? limit 1", nativeQuery = true)
+	@Query(value = "SELECT cname FROM payment where bookid=? limit 1", nativeQuery = true)
 	String checkBookIdInPayment(int bookid);
 	
 	@Query(value = "select max(amount_paid) from payment where bookid =?", nativeQuery = true)

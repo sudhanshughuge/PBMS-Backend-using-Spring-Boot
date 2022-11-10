@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pbms.ProjectBackend.entities.Customer;
-import com.pbms.ProjectBackend.exceptions.ResourceNotFoundException;
 import com.pbms.ProjectBackend.repository.CustomerRepo;
 
 @Service
@@ -28,7 +27,7 @@ public class CustomerServiceimpl implements CustomerService {
 
 	@Override
 	public Customer getCustomer(int CustID) {
-		Customer customer = customerRepo.findById(CustID).orElseThrow(()-> new ResourceNotFoundException("Customer", "id", CustID));
+		Customer customer = customerRepo.findById(CustID).orElseThrow();
 		return customer;
 	}
 

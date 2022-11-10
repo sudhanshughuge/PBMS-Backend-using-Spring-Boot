@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.pbms.ProjectBackend.entities.User;
 
 import com.pbms.ProjectBackend.repository.UserRepo;
-import com.pbms.ProjectBackend.exceptions.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -29,7 +28,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUser(int UserID) {
-		User user = this.userRepo.findById(UserID).orElseThrow(()-> new ResourceNotFoundException("User", "id", UserID));
+		User user = this.userRepo.findById(UserID).orElseThrow();
 		return user;
 	}
 

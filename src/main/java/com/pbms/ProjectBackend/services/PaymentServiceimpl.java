@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pbms.ProjectBackend.entities.Payment;
-import com.pbms.ProjectBackend.exceptions.ResourceNotFoundException;
 import com.pbms.ProjectBackend.repository.PaymentRepo;
 
 @Service
@@ -23,8 +22,7 @@ public class PaymentServiceimpl implements PaymentService {
 
 	@Override
 	public Payment getPayment(int PayID) {
-		Payment payment = this.paymentRepo.findById(PayID)
-				.orElseThrow(() -> new ResourceNotFoundException("Payment", "id", PayID));
+		Payment payment = this.paymentRepo.findById(PayID).orElseThrow();
 		return payment;
 	}
 

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pbms.ProjectBackend.entities.City;
-import com.pbms.ProjectBackend.exceptions.ResourceNotFoundException;
 import com.pbms.ProjectBackend.repository.CityRepo;
 
 @Service
@@ -23,7 +22,7 @@ public class CityServiceImpl implements CityService{
 
 	@Override
 	public City getCity(int CityId) {
-		return cityRepo.findById(CityId).orElseThrow(()-> new ResourceNotFoundException("City", "id", CityId));
+		return cityRepo.findById(CityId).orElseThrow();
 	}
 
 	@Override

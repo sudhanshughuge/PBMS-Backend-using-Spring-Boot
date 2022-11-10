@@ -10,6 +10,6 @@ public interface PropertyRepo extends CrudRepository<Property, Integer>{
 	@Query(value = "SELECT max(PropID) FROM Property")
 	String getMaxPropertyId();
 	
-	@Query(value = "SELECT * FROM Property where book_status='Available'", nativeQuery = true)
+	@Query(value = "SELECT * FROM property where book_status='Available'", nativeQuery = true)
 	Iterable<Property> getAvailableProperties();
 }
